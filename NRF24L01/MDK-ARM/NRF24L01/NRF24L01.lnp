@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+"nrf24l01\startup_stm32f103xb.o"
+"nrf24l01\main.o"
+"nrf24l01\gpio.o"
+"nrf24l01\stm32f1xx_it.o"
+"nrf24l01\stm32f1xx_hal_msp.o"
+"nrf24l01\stm32f1xx_hal_gpio_ex.o"
+"nrf24l01\stm32f1xx_hal_tim.o"
+"nrf24l01\stm32f1xx_hal_tim_ex.o"
+"nrf24l01\stm32f1xx_hal.o"
+"nrf24l01\stm32f1xx_hal_rcc.o"
+"nrf24l01\stm32f1xx_hal_rcc_ex.o"
+"nrf24l01\stm32f1xx_hal_gpio.o"
+"nrf24l01\stm32f1xx_hal_dma.o"
+"nrf24l01\stm32f1xx_hal_cortex.o"
+"nrf24l01\stm32f1xx_hal_pwr.o"
+"nrf24l01\stm32f1xx_hal_flash.o"
+"nrf24l01\stm32f1xx_hal_flash_ex.o"
+"nrf24l01\stm32f1xx_hal_exti.o"
+"nrf24l01\system_stm32f1xx.o"
+"nrf24l01\delay.o"
+"nrf24l01\oled.o"
+"nrf24l01\key_block.o"
+"nrf24l01\nrf24l01.o"
+--strict --scatter "NRF24L01\NRF24L01.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "NRF24L01.map" -o NRF24L01\NRF24L01.axf
