@@ -1,0 +1,301 @@
+
+*** Running vivado
+    with args -log ultrasound_meter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ultrasound_meter.tcl
+
+
+ECHO 处于关闭状态。
+ECHO 处于关闭状态。
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ultrasound_meter.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 485.805 ; gain = 181.043
+Command: synth_design -top ultrasound_meter -part xc7a35tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 28092
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1320.078 ; gain = 440.082
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ultrasound_meter' [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_meter.v:4]
+INFO: [Synth 8-6157] synthesizing module 'ultrasound_ctrl' [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_ctrl.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'ultrasound_ctrl' (0#1) [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_ctrl.v:14]
+INFO: [Synth 8-6157] synthesizing module 'ave_filter' [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ave_filter.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ave_filter' (0#1) [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ave_filter.v:7]
+INFO: [Synth 8-6157] synthesizing module 'beep_led_alarm' [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/beep_led_alarm.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'beep_led_alarm' (0#1) [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/beep_led_alarm.v:7]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_bcd' [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/bin_to_bcd.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_bcd' (0#1) [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/bin_to_bcd.v:7]
+INFO: [Synth 8-6157] synthesizing module 'nixie_display' [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v:19]
+INFO: [Synth 8-226] default block is never used [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v:98]
+INFO: [Synth 8-226] default block is never used [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v:107]
+INFO: [Synth 8-6155] done synthesizing module 'nixie_display' (0#1) [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'ultrasound_meter' (0#1) [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_meter.v:4]
+WARNING: [Synth 8-7137] Register pause_reg in module nixie_display has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v:71]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1430.703 ; gain = 550.707
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1430.703 ; gain = 550.707
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1430.703 ; gain = 550.707
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1430.703 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/constrs_1/new/ultrasound_meter.xdc]
+CRITICAL WARNING: [Netlist 29-177] Cannot set property 'dict' because the property does not exist. [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/constrs_1/new/ultrasound_meter.xdc:29]
+Resolution: Create this property using create_property command before setting it.
+WARNING: [Vivado 12-507] No nets matched 'key_IBUF'. [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/constrs_1/new/ultrasound_meter.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/constrs_1/new/ultrasound_meter.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/constrs_1/new/ultrasound_meter.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/constrs_1/new/ultrasound_meter.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ultrasound_meter_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ultrasound_meter_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1461.246 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+系统找不到指定的路径。
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1461.246 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1461.246 ; gain = 581.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1461.246 ; gain = 581.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1461.246 ; gain = 581.250
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'keyflag_reg' in module 'nixie_display'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                              001 |                              000
+                 iSTATE1 |                              010 |                              001
+                  iSTATE |                              100 |                              010
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'keyflag_reg' using encoding 'one-hot' in module 'nixie_display'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1461.246 ; gain = 581.250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   24 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 1     
+	   8 Input   16 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 30    
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               29 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	               22 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	               13 Bit    Registers := 9     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input   24 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	  13 Input    8 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 23    
+	   4 Input    4 Bit        Muxes := 3     
+	   3 Input    4 Bit        Muxes := 1     
+	   3 Input    3 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP u_ultrasound_ctrl/data_bin1, operation Mode is: A*(B:0x11).
+DSP Report: operator u_ultrasound_ctrl/data_bin1 is absorbed into DSP u_ultrasound_ctrl/data_bin1.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1461.246 ; gain = 581.250
+---------------------------------------------------------------------------------
+ Sort Area is  u_ultrasound_ctrl/data_bin1_0 : 0 0 : 160 160 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|ultrasound_ctrl | A*(B:0x11)  | 22     | 5      | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1463.277 ; gain = 583.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1464.020 ; gain = 584.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1501.680 ; gain = 621.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|ultrasound_ctrl | A*B         | 22     | 5      | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     2|
+|2     |CARRY4  |    79|
+|3     |DSP48E1 |     1|
+|4     |LUT1    |     8|
+|5     |LUT2    |   119|
+|6     |LUT3    |   143|
+|7     |LUT4    |    93|
+|8     |LUT5    |    68|
+|9     |LUT6    |   167|
+|10    |FDCE    |   259|
+|11    |FDPE    |     1|
+|12    |FDRE    |    16|
+|13    |IBUF    |     4|
+|14    |OBUF    |    15|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1516.512 ; gain = 605.973
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1516.512 ; gain = 636.516
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1528.574 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 80 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1536.168 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+系统找不到指定的路径。
+Synth Design complete | Checksum: 1efd1cee
+INFO: [Common 17-83] Releasing license: Synthesis
+31 Infos, 3 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 1536.168 ; gain = 1050.363
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1536.168 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.runs/synth_1/ultrasound_meter.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ultrasound_meter_utilization_synth.rpt -pb ultrasound_meter_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 14:17:32 2024...

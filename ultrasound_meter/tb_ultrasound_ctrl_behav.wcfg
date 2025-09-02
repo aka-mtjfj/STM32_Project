@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_nixie_display_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_nixie_display" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="570172200fs"></ZoomStartTime>
+      <ZoomEndTime time="761472201fs"></ZoomEndTime>
+      <Cursor1Time time="621672000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="75"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/sys_clk" type="logic">
+      <obj_property name="ElementShortName">sys_clk</obj_property>
+      <obj_property name="ObjectShortName">sys_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/sys_rst_n" type="logic">
+      <obj_property name="ElementShortName">sys_rst_n</obj_property>
+      <obj_property name="ObjectShortName">sys_rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/data_bcd" type="array">
+      <obj_property name="ElementShortName">data_bcd[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_bcd[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/nixie_cs" type="array">
+      <obj_property name="ElementShortName">nixie_cs[3:0]</obj_property>
+      <obj_property name="ObjectShortName">nixie_cs[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/cnt_1ms" type="array">
+      <obj_property name="ElementShortName">cnt_1ms[16:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_1ms[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/cnt_1ms_flag" type="logic">
+      <obj_property name="ElementShortName">cnt_1ms_flag</obj_property>
+      <obj_property name="ObjectShortName">cnt_1ms_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/cnt_nixie" type="array">
+      <obj_property name="ElementShortName">cnt_nixie[1:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_nixie[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/CNT_1MS_MAX" type="array">
+      <obj_property name="ElementShortName">CNT_1MS_MAX[16:0]</obj_property>
+      <obj_property name="ObjectShortName">CNT_1MS_MAX[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_0" type="array">
+      <obj_property name="ElementShortName">_0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_1" type="array">
+      <obj_property name="ElementShortName">_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_2" type="array">
+      <obj_property name="ElementShortName">_2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_3" type="array">
+      <obj_property name="ElementShortName">_3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_4" type="array">
+      <obj_property name="ElementShortName">_4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_4[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_5" type="array">
+      <obj_property name="ElementShortName">_5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_5[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_6" type="array">
+      <obj_property name="ElementShortName">_6[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_6[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_7" type="array">
+      <obj_property name="ElementShortName">_7[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_7[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_8" type="array">
+      <obj_property name="ElementShortName">_8[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_8[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/_9" type="array">
+      <obj_property name="ElementShortName">_9[7:0]</obj_property>
+      <obj_property name="ObjectShortName">_9[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/data_nixie" type="array">
+      <obj_property name="ElementShortName">data_nixie[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_nixie[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_nixie_display/nixie_display_inst/nixie_seg" type="array">
+      <obj_property name="ElementShortName">nixie_seg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">nixie_seg[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>

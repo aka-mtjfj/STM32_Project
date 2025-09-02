@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ultrasound_meter.srcs/sources_1/new/ave_filter.v" \
+"../../../../ultrasound_meter.srcs/sources_1/new/beep_led_alarm.v" \
+"../../../../ultrasound_meter.srcs/sources_1/new/bin_to_bcd.v" \
+"../../../../ultrasound_meter.srcs/sources_1/new/nixie_display.v" \
+"../../../../ultrasound_meter.srcs/sources_1/new/ultrasound_ctrl.v" \
+"../../../../ultrasound_meter.srcs/sources_1/new/ultrasound_meter.v" \
+"../../../../ultrasound_meter.srcs/sim_1/new/tb1.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

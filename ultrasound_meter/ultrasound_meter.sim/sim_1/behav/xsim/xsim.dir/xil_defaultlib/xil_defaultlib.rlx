@@ -1,0 +1,13 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sim_1/new/tb1.v,1733983747,verilog,,,,tb_ultrasound_meter,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sim_1/new/tb_nixie_display.v,1703562396,verilog,,,,tb_nixie_display,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ave_filter.v,1703557805,verilog,,D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/beep_led_alarm.v,,ave_filter,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/beep_led_alarm.v,1703559338,verilog,,D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/bin_to_bcd.v,,beep_led_alarm,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/bin_to_bcd.v,1703560912,verilog,,D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v,,bin_to_bcd,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/nixie_display.v,1733746475,verilog,,D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_ctrl.v,,nixie_display,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_ctrl.v,1703515547,verilog,,D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_meter.v,,ultrasound_ctrl,,,,,,,,
+D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sources_1/new/ultrasound_meter.v,1733743342,verilog,,D:/vivado_project/final2/ultrasound_meter/ultrasound_meter.srcs/sim_1/new/tb1.v,,ultrasound_meter,,,,,,,,
