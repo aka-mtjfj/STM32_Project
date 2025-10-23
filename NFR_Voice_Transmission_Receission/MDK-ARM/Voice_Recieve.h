@@ -16,7 +16,7 @@ extern volatile uint8_t rx_buffer_full_flag;
 extern volatile uint8_t current_dac_buffer; // 0 表示 dac_buffer1 就绪, 1 表示 dac_buffer2 就绪
 
 // Circular DAC 缓冲区（2 × BUFFER_SIZE）
-extern uint16_t dac_buffer[2 * BUFFER_SIZE];
+extern uint16_t dac_buffer[2* BUFFER_SIZE];
 
 // 初始化函数
 void Voice_Device_RX_Init(void);

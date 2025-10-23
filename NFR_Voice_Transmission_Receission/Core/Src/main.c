@@ -124,6 +124,7 @@ int main(void)
 		{
 			current_state=STATE_TRANSMITTING;
 			transmitting_state_handler();
+			
 		}
 		else{
 

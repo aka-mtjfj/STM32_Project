@@ -519,12 +519,12 @@ void NRF24L01_Init(void)
 	/*初始化配置一系列寄存器，寄存器值的意义需参考手册中的寄存器描述*/
 	/*以下配置通信双方必须保持一致，否则无法进行通信*/
 	NRF24L01_WriteReg(NRF24L01_CONFIG, 0x08);		//配置寄存器，不屏蔽中断，使能CRC，CRC为1字节，PWR_UP = 0，PRIM_RX = 0
-	NRF24L01_WriteReg(NRF24L01_EN_AA, 0x3F);		//使能自动应答，开启接收通道0~通道5的自动应答
+	NRF24L01_WriteReg(NRF24L01_EN_AA, 0x00);		//使能自动应答0x3f，开启接收通道0~通道5的自动应答,这里关闭
 	NRF24L01_WriteReg(NRF24L01_EN_RXADDR, 0x01);	//使能接收通道，只开启接收通道0
 	NRF24L01_WriteReg(NRF24L01_SETUP_AW, 0x03);		//设置地址宽度，地址宽度为5字节
-	NRF24L01_WriteReg(NRF24L01_SETUP_RETR, 0x03);	//设置自动重传，间隔250us，重传3次
+	NRF24L01_WriteReg(NRF24L01_SETUP_RETR, 0x00);	//设置自动重传，间隔250us，重传1次
 	NRF24L01_WriteReg(NRF24L01_RF_CH, 0x02);		//射频通道，频率为(2400 + 2)MHz = 2.402GHz
-	NRF24L01_WriteReg(NRF24L01_RF_SETUP, 0x0E);		//射频设置，通信速率为2Mbps，发射功率为0dBm
+	NRF24L01_WriteReg(NRF24L01_RF_SETUP, 0x0E);		//射频设置，通信速率为1Mbps，发射功率为0dBm
 	
 	/*接收通道0的数据包宽度，设置为宏定义NRF24L01_RX_PACKET_WIDTH指定的值*/
 	NRF24L01_WriteReg(NRF24L01_RX_PW_P0, NRF24L01_RX_PACKET_WIDTH);

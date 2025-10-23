@@ -50,7 +50,7 @@ void Voice_Device_Tx_Init()
 		
 }
 
-
+ 
 
 /**
  * @brief ADC DMA传输完成中断回调函数  
@@ -106,7 +106,7 @@ void prepare_nrf_packet(void) {
 					overflow_count++;
             // 缓冲区越界保护，使用静音
 					if ((overflow_count % 100) == 0) { // 每累积100次溢出才打印一次
-						printf("警告: 缓冲区逸出出现 %d 次。\n", overflow_count);
+						//printf("警告: 缓冲区逸出出现 %d 次。\n", overflow_count);
 					}
             sample = 2048;
         }
@@ -118,7 +118,7 @@ void prepare_nrf_packet(void) {
 		if(packet_cnt%4000==0)
 		{
 			packet_cnt=0;
-			printf("累计4000个数据包已准备好。\n");
+			//printf("累计4000个数据包已准备好。\n");
 		}
 }
 
@@ -146,10 +146,10 @@ void transmitting_state_handler(void)
             // 如果当前缓冲区的所有包都发送完了
             if(packets_remaining == 0) {
                 buffer_ready = 0;  // 停止发送，等待下一个缓冲区
-							ready_buffer = NULL;
+							
 							if(buffer_sent_cnt%100==0)
 							{
-								printf("%d个缓冲区所有数据包发送完成\n",buffer_sent_cnt);
+								//printf("%d个缓冲区所有数据包发送完成\n",buffer_sent_cnt);
 								buffer_sent_cnt=0;
 							}
             }
