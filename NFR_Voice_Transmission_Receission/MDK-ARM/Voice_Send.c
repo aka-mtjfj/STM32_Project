@@ -15,7 +15,7 @@ volatile uint8_t packets_remaining = 0;  // 当前缓冲区剩余要发送的包
 extern ADC_HandleTypeDef hadc1;
 extern TIM_HandleTypeDef htim2;
 extern UART_HandleTypeDef huart1;
-extern DMA_HandleTypeDef hdma_adc1; 
+
 
 int fputc(int c,FILE *stream)
 {
@@ -42,11 +42,12 @@ void Voice_Device_Tx_Init()
     
     // 启动第一次 DMA 传输（播放 buffer1）
 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)arr1, BUFFER_SIZE);
-		HAL_TIM_Base_Start(&htim2);
+		 HAL_TIM_Base_Start_IT(&htim2);
+		
 	
 		
 		
-		printf("发送端初始化完成。\r\n");
+		//printf("发送端初始化完成。\r\n");
 		
 }
 
@@ -84,20 +85,23 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
 
 // 直接从DMA缓冲区读取数据并打包到NRF发送缓冲区
 void prepare_nrf_packet(void) {
+		uint16_t sample;
     volatile uint16_t* source_buffer = ready_buffer;//确定现在可发的是哪个数组
     static uint32_t overflow_count = 0;
 		static uint16_t packet_cnt=0;
     // 音频数据（16位样本拆分为2个字节）
 	    if (ready_buffer == NULL) {
         // 异常情况，填充静音
-        for (int i = 0; i < SAMPLES_PER_PACKET * 2; i++) {
-            NRF24L01_TxPacket[i] = (i % 2 == 0) ? 0x08 : 0x00;
+        for (int i = 0; i < SAMPLES_PER_PACKET; i++) {
+            sample=2222;
+					NRF24L01_TxPacket[i*2] = (sample >> 8) & 0xFF;     // 高字节
+        NRF24L01_TxPacket[i*2 + 1] = sample & 0xFF;        // 低字节
         }
         return;
     }
     for(int i = 0; i < SAMPLES_PER_PACKET; i++)
 	{
-        uint16_t sample;
+       
         
         // 从当前DMA缓冲区读取样本
         if(sample_read_index < BUFFER_SIZE) {
@@ -105,10 +109,8 @@ void prepare_nrf_packet(void) {
         } else {
 					overflow_count++;
             // 缓冲区越界保护，使用静音
-					if ((overflow_count % 100) == 0) { // 每累积100次溢出才打印一次
-						//printf("警告: 缓冲区逸出出现 %d 次。\n", overflow_count);
-					}
-            sample = 2048;
+
+            sample = 1111;
         }
         // 16位样本拆分为2个字节存入发送缓冲区
         NRF24L01_TxPacket[i*2] = (sample >> 8) & 0xFF;     // 高字节
@@ -138,25 +140,31 @@ void transmitting_state_handler(void)
     // 如果数据包已准备好，尝试发送
     if (is_packet_prepared) {
         sendflag = NRF24L01_Send();
+//	for(uint16_t i=0;i<16;i++)
+//		{
+//			uint16_t sample = (((uint16_t)NRF24L01_TxPacket[i * 2]) << 8) |
+//                          ((uint16_t)NRF24L01_TxPacket[i * 2 + 1]);
+//			if (sample>=3000)
+//			{
+//				sample=3000;
+//			}
+//			printf("%d,\n",sample);
+//		}
         if(sendflag == 1) 
 					{
             packets_remaining--;  // 减少剩余包数
             is_packet_prepared = 0; // 标记发送完成，可以准备下一个包
-					buffer_sent_cnt++;//缓冲区发送个数
+					
             // 如果当前缓冲区的所有包都发送完了
             if(packets_remaining == 0) {
                 buffer_ready = 0;  // 停止发送，等待下一个缓冲区
 							
-							if(buffer_sent_cnt%100==0)
-							{
-								//printf("%d个缓冲区所有数据包发送完成\n",buffer_sent_cnt);
-								buffer_sent_cnt=0;
-							}
+							
             }
         } 
 				else {
             // 发送失败处理
-            printf("发送数据包出错，错误码是%d\n", sendflag);
+           // printf("发送数据包出错，错误码是%d\n", sendflag);
             is_packet_prepared = 0; // 丢弃当前失败的包
         }
     }
@@ -168,6 +176,6 @@ void transmitting_state_handler(void)
         NRF24L01_TxPacket[i*2] = 0x08;     // 高字节
         NRF24L01_TxPacket[i*2 + 1] = 0x00; // 低字节
     }
-		printf("静音数据包已准备好。\n");
+		//printf("静音数据包已准备好。\n");
 }
 	

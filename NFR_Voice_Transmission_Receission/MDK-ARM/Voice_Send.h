@@ -2,9 +2,9 @@
 #ifndef Voice_Send_h
 #define Voice_Send_h
 // 缓冲区配置
-#define BUFFER_SIZE      256     // 每个缓冲区大小
+#define BUFFER_SIZE      256     // 每个缓冲区大小,样本
 #define SAMPLES_PER_PACKET 16    // 每个NRF数据包包含的样本数
-#define PACKETS_PER_BUFFER (BUFFER_SIZE / SAMPLES_PER_PACKET)  // = 16
+#define PACKETS_PER_BUFFER (BUFFER_SIZE / SAMPLES_PER_PACKET)  // =16
 #define PACKET_SIZE      32      // 16样本 × 2字节
 
 // 设备状态

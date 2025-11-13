@@ -175,24 +175,33 @@ uint8_t NRF24L01_SPI_SwapByte(uint8_t Byte)
 		if (Byte & 0x80)			//判断Byte的最高位
 		{
 			NRF24L01_W_MOSI(1);		//如果为1，则给MOSI输出1
+			
 		}
 		else
 		{
 			NRF24L01_W_MOSI(0);		//如果为0，则给MOSI输出0
+			
 		}
 		Byte <<= 1;					//Byte左移一位，最低位空出来用于接收数据位
 		
 		/*产生SCK上升沿*/
 		NRF24L01_W_SCK(1);
+		__NOP();		__NOP();__NOP();__NOP();__NOP();
+		__NOP();__NOP();__NOP();__NOP();__NOP();
+
 		
 		/*从MISO引脚移入数据，存入Byte的最低位*/
 		if (NRF24L01_R_MISO())		//读取MISO引脚
 		{
 			Byte |= 0x01;			//如果为1，则给Byte最低位置1
+			
 		}							//如果为0，则不做任何操作，因为左移后低位默认补0
 		
 		/*产生SCK下降沿*/
 		NRF24L01_W_SCK(0);
+		__NOP();		__NOP();__NOP();__NOP();__NOP();
+		__NOP();__NOP();__NOP();__NOP();__NOP();
+
 	}
 	
 	/*返回Byte数据，此时的Byte为SPI交换接收得到的一个字节数据*/
@@ -524,7 +533,7 @@ void NRF24L01_Init(void)
 	NRF24L01_WriteReg(NRF24L01_SETUP_AW, 0x03);		//设置地址宽度，地址宽度为5字节
 	NRF24L01_WriteReg(NRF24L01_SETUP_RETR, 0x00);	//设置自动重传，间隔250us，重传1次
 	NRF24L01_WriteReg(NRF24L01_RF_CH, 0x02);		//射频通道，频率为(2400 + 2)MHz = 2.402GHz
-	NRF24L01_WriteReg(NRF24L01_RF_SETUP, 0x0E);		//射频设置，通信速率为1Mbps，发射功率为0dBm
+	NRF24L01_WriteReg(NRF24L01_RF_SETUP,  0x0E );		//射频设置，通信速率为1Mbps，发射功率为0dBm
 	
 	/*接收通道0的数据包宽度，设置为宏定义NRF24L01_RX_PACKET_WIDTH指定的值*/
 	NRF24L01_WriteReg(NRF24L01_RX_PW_P0, NRF24L01_RX_PACKET_WIDTH);
@@ -636,6 +645,7 @@ uint8_t NRF24L01_Send(void)
   * 			1：成功接收到一个数据包
   * 			2：状态寄存器的值不合法，可能是设备不存在、断路、短路或者引脚配置不正确
   * 			3：设备仍处于掉电模式，可能是设备未初始化、曾经断电过、断路、短路或者引脚配置不正确
+					
   * 说    明：如果收到了数据包，则可直接从全局数组NRF24L01_RxPacket取数据
   */
 uint8_t NRF24L01_Receive(void)
@@ -664,6 +674,7 @@ uint8_t NRF24L01_Receive(void)
 	{
 		ReceiveFlag = 1;				//接收到数据，置标志位为1
 		
+			 
 		/*读接收有效载荷，存放在全局数组NRF24L01_RxPacket中，数据宽度为NRF24L01_RX_PACKET_WIDTH*/
 		NRF24L01_ReadRxPayload(NRF24L01_RxPacket, NRF24L01_RX_PACKET_WIDTH);
 		

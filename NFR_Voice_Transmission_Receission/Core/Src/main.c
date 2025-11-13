@@ -37,7 +37,9 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+#define receive_state  0
+#define sending_state  1
+uint16_t state=0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -102,10 +104,19 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
 	OLED_Init();
 	Key_Init();
 	HAL_TIM_Base_Start_IT(&htim3);
+	HAL_TIM_Base_Start_IT(&htim2);
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+	
+	GPIO_InitTypeDef GPIO_InitStructure;
+ 	GPIO_InitStructure.Mode=GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStructure.Speed=GPIO_SPEED_FREQ_HIGH;
+	GPIO_InitStructure.Pin=GPIO_PIN_7;
+ 	HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
 	Voice_Device_Tx_Init();
 	Voice_Device_RX_Init();
 	
@@ -116,21 +127,44 @@ int main(void)
 	uint8_t key_num=0;
 	uint8_t recieve_flag=0;
 	OLED_ShowString(1,1,"555");
-
+uint32_t hclk_freq= HAL_RCC_GetHCLKFreq();
+OLED_ShowNum(2,1,hclk_freq/1000000,2);
+uint8_t adc_stop=0;
+uint8_t dac_stop=0;
   while (1)
   {
 		
 		if(Key_GetState())
 		{
-			current_state=STATE_TRANSMITTING;
+			state=sending_state;
+				if(adc_stop==1)
+			{
+				HAL_ADC_Start(&hadc1);//进入发模式时启adc采样
+				adc_stop=0;
+			}
+			if(dac_stop==0)
+			{
+				HAL_DAC_Stop(&hdac,DAC_CHANNEL_1);//关闭dac输出
+				dac_stop=1;
+			}
+			
 			transmitting_state_handler();
 			
 		}
 		else{
-
-			recieve_flag=receiving_state_handler();
-			if(recieve_flag==2)
-				printf("警告: 接收中间缓冲区溢.\r\n");
+			state=receive_state;
+			if(adc_stop==0)
+			{
+				HAL_ADC_Stop(&hadc1);//进入接收模式时停止adc采样
+				adc_stop=1;
+			}
+					if(dac_stop==1)
+			{
+				HAL_DAC_Start(&hdac,DAC_CHANNEL_1);//启dac输出
+				dac_stop=0;
+			}
+			receiving_state_handler();
+			
 		}
 
     /* USER CODE END WHILE */

@@ -31,7 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define receive_state  0
+#define sending_state  1
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

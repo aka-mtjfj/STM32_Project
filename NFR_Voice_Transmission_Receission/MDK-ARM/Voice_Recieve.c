@@ -15,15 +15,12 @@ uint16_t dac_buffer[CIRCULAR_BUFFER_SIZE];
 
 #define INTERMEDIATE_BUFFER_SIZE (2*BUFFER_SIZE )
 static uint16_t intermediate_audio_buffer[INTERMEDIATE_BUFFER_SIZE];
-static volatile uint16_t ib_write_index = 0;
-static volatile uint16_t ib_read_index = 0;
-static volatile uint16_t ib_count = 0;
-static uint32_t no_data_count = 0;
-static uint32_t ib_overflow_count = 0;
+
 static volatile uint16_t A_ready = 0;
 static volatile uint16_t B_ready = 0;
 #define HALF_SIZE (INTERMEDIATE_BUFFER_SIZE / 2)
 
+static uint8_t  silence_flag =0;
 static volatile uint8_t writing_half = 0;      // 0 = 正在写 A 区, 1 = 正在写 B 区
 static volatile uint16_t write_offset = 0;     // 当前半区内的写入偏移（0 ~ HALF_SIZE-1）
 /**
@@ -35,7 +32,7 @@ static volatile uint16_t write_offset = 0;     // 当前半区内的写入偏移
 uint8_t parse_nrf_packet_into_intermediate_buffer(void) {
     // 检查是否两个缓冲区都满（无法写入）
     if (A_ready && B_ready) {
-        ib_overflow_count++;
+      
         return 2; // 缓冲区溢出
     }
 
@@ -68,7 +65,7 @@ uint8_t parse_nrf_packet_into_intermediate_buffer(void) {
         write_offset = 0;
     }
 
-    no_data_count = 0; // 有数据进来，重置无数据计数
+   
     return 1;
 }
 uint8_t fill_dac_buffer_from_intermediate(uint16_t* target_buffer) {
@@ -126,19 +123,31 @@ void HAL_DAC_DMAUnderrunCallbackCh1(DAC_HandleTypeDef *hdac)
   * @refer ：说明:
   */
 
-uint8_t receiving_state_handler(void) {
+void receiving_state_handler(void) {
 	uint8_t flag=0;
-
+	static uint16_t timeout=0;
     if (NRF24L01_Receive() == 1) {
+			if(silence_flag==1)
+			{
+				silence_flag=0;
+				HAL_DAC_Start(&hdac,DAC_CHANNEL_1);
+			}
         flag=parse_nrf_packet_into_intermediate_buffer();
-        no_data_count = 0;
+        
     } else {
 			flag=1;
-        no_data_count++;
+        timeout++;
+		if(timeout>=5000)
+		{
+						silence_flag=1;//静音标志置一
+			HAL_DAC_Stop(&hdac,DAC_CHANNEL_1);
+			timeout=0;
+		}
+			
+	}
+
     }
-			return flag;
-		
-}
+			
 
 
 void Voice_Device_RX_Init(void) {
@@ -150,10 +159,7 @@ void Voice_Device_RX_Init(void) {
     }
 
     // 初始化中间缓冲区
-    ib_write_index = 0;
-    ib_read_index = 0;
-    ib_count = 0;
-    no_data_count = 0;
+
     // 启动 DAC 触发定时器
     HAL_TIM_Base_Start(&htim2);
 HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)dac_buffer, CIRCULAR_BUFFER_SIZE, DAC_ALIGN_12B_R);
