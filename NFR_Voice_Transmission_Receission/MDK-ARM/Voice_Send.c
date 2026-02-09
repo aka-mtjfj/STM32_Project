@@ -39,19 +39,11 @@ void Voice_Device_Tx_Init()
         arr1[i] = 2048;
         arr2[i] = 2048;
     }
-    
     // 启动第一次 DMA 传输（播放 buffer1）
 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)arr1, BUFFER_SIZE);
 		 HAL_TIM_Base_Start_IT(&htim2);
-		
-	
-		
-		
 		//printf("发送端初始化完成。\r\n");
-		
 }
-
- 
 
 /**
  * @brief ADC DMA传输完成中断回调函数  

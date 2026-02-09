@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NFR_Voice_Transmission_Receission\NFR_Voice_Transmission_Receission.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NFR_Voice_Transmission_Receission\NFR_Voice_Transmission_Receission.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Sat Nov  8 10:57:37 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Thu Nov 20 14:17:32 2025
 <BR><P>
 <H3>Maximum Stack Usage =        384 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -328,15 +328,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receiving_state_handler
 </UL>
 
-<P><STRONG><a name="[6c]"></a>fill_dac_buffer_from_intermediate</STRONG> (Thumb, 158 bytes, Stack size 12 bytes, voice_recieve.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = fill_dac_buffer_from_intermediate
+<P><STRONG><a name="[6c]"></a>fill_dac_buffer_from_intermediate</STRONG> (Thumb, 204 bytes, Stack size 16 bytes, voice_recieve.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = fill_dac_buffer_from_intermediate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_ConvCpltCallbackCh1
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_ConvHalfCpltCallbackCh1
 </UL>
 
 <P><STRONG><a name="[6b]"></a>HAL_DAC_ConvHalfCpltCallbackCh1</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, voice_recieve.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_DAC_ConvHalfCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_DAC_ConvHalfCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fill_dac_buffer_from_intermediate
 </UL>
@@ -344,7 +344,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6d]"></a>HAL_DAC_ConvCpltCallbackCh1</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, voice_recieve.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_DAC_ConvCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_DAC_ConvCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fill_dac_buffer_from_intermediate
 </UL>
@@ -3264,14 +3264,14 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[4a]"></a>DAC_DMAConvCpltCh1</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, stm32f3xx_hal_dac_ex.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = DAC_DMAConvCpltCh1 &rArr; HAL_DAC_ConvCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DAC_DMAConvCpltCh1 &rArr; HAL_DAC_ConvCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_ConvCpltCallbackCh1
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f3xx_hal_dac_ex.o(.text)
 </UL>
 <P><STRONG><a name="[4b]"></a>DAC_DMAHalfConvCpltCh1</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, stm32f3xx_hal_dac_ex.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = DAC_DMAHalfConvCpltCh1 &rArr; HAL_DAC_ConvHalfCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DAC_DMAHalfConvCpltCh1 &rArr; HAL_DAC_ConvHalfCpltCallbackCh1 &rArr; fill_dac_buffer_from_intermediate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_ConvHalfCpltCallbackCh1
 </UL>
